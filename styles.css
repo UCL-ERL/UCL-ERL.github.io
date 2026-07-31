@@ -1,0 +1,647 @@
+:root {
+    --ink: #444;
+    --heading: #111;
+    --muted: #777;
+    --link: #0000ee;
+    --rule: #e5e5e5;
+    --paper: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+    a:hover,
+    a:focus-visible {
+        text-decoration: underline;
+    }
+
+/*.wrap {
+    width: min(1200px, calc(100% - 64px));
+    margin-inline: auto;
+}*/
+
+.wrap {
+    width: calc(100% - 64px);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   HEADER
+   Matches the current HTML classes:
+   header-layout / lab-brand
+   header-right / ucl-brand / ucl-logo / main-nav
+   ========================================================= */
+
+.site-header {
+    padding: 25px 0 22px;
+}
+
+.header-layout {
+    display: grid;
+    grid-template-columns: 330px minmax(0, 1fr);
+    gap: clamp(70px, 11vw, 150px);
+    align-items: start;
+}
+
+
+/* Left: ERL wordmark */
+.lab-brand {
+    grid-column: 1;
+    display: block;
+    justify-self: start;
+    color: #361A54;
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -0.08em;
+    line-height: 1;
+    margin-top: -8px;
+    overflow: visible;
+}
+
+    .lab-brand:hover {
+        text-decoration: none;
+    }
+
+/* Right: UCL logo above navigation */
+.header-right {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-self: stretch;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.ucl-brand {
+    display: block;
+    align-self: flex-end;
+    line-height: 0;
+    margin: 0;
+}
+
+    .ucl-brand:hover {
+        text-decoration: none;
+    }
+
+.ucl-logo {
+    display: block;
+    width: 170px;
+    height: 30px;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: right center;
+}
+
+.main-nav {
+    align-self: flex-end;
+    margin-top: 12px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: clamp(18px, 3vw, 38px);
+    font-size: 18px;
+}
+
+    nav a {
+        color: #707070;
+    }
+
+        nav a:hover,
+        nav a.active {
+            color: #222;
+            text-decoration: none;
+        }
+
+/* =========================================================
+   HOME PAGE
+   ========================================================= */
+
+.home-layout {
+    display: grid;
+    grid-template-columns: 330px minmax(0, 1fr);
+    gap: clamp(70px, 11vw, 150px);
+    align-items: start;
+    padding-top: 46px;
+    padding-bottom: 76px;
+}
+
+.profile-column {
+    position: sticky;
+    top: 30px;
+}
+
+.lead-portrait {
+    display: block;
+    width: 300px;
+    max-width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 22%;
+}
+
+.affiliation {
+    margin-top: 28px;
+    font-size: 19px;
+    line-height: 1.45;
+}
+
+    .affiliation p {
+        margin: 0;
+    }
+
+.profile-name {
+    margin: 22px 0 0;
+    color: var(--heading);
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.2;
+}
+
+.profile-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 18px;
+    font-size: 16px;
+}
+
+.home-content {
+    max-width: 760px;
+    padding-top: 0px;
+}
+
+.intro-copy p,
+.research-block p {
+    margin: 0 0 30px;
+}
+
+.intro-copy {
+    font-size: 20px;
+    line-height: 1.42;
+}
+
+.research-block {
+    margin-top: 52px;
+}
+
+    .research-block h1,
+    .selected-work h2 {
+        margin: 0 0 24px;
+        color: var(--ink);
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    .research-block p {
+        font-size: 19px;
+    }
+
+    .research-block .join-note {
+        margin-top: 8px;
+        font-size: 18px;
+    }
+
+.selected-work {
+    margin-top: 52px;
+}
+
+.home-publications {
+    margin: 0;
+    padding-left: 27px;
+}
+
+    .home-publications li {
+        margin: 0 0 24px;
+        padding-left: 4px;
+    }
+
+    .home-publications span,
+    .home-publications em {
+        color: #555;
+    }
+
+.text-link {
+    display: inline-block;
+    margin-top: 6px;
+}
+
+/* =========================================================
+   GENERAL INNER PAGES
+   ========================================================= */
+
+.page-main {
+    padding-top: 56px;
+    padding-bottom: 90px;
+}
+
+.narrow-page {
+    max-width: 850px;
+    margin-left: max(32px, calc((100vw - 1200px) / 2));
+}
+
+/*.page-title {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: end;
+    gap: 56px;
+    margin-bottom: 62px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+}*/
+.page-title {
+    display: grid;
+    grid-template-columns: 330px minmax(0, 1fr);
+    gap: clamp(70px, 11vw, 150px);
+    align-items: end;
+    margin-bottom: 62px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+}
+    .page-title h1 {
+        margin: 0;
+        color: var(--heading);
+        font-size: 42px;
+        font-weight: 500;
+        letter-spacing: -0.045em;
+    }
+
+    .page-title p {
+        justify-self: end;
+        width: min(100%, 295px);
+        max-width: none;
+        margin: 0;
+        color: var(--muted);
+        text-align: left;
+    }
+.contact-page .page-title p {
+    width: 470px;
+    max-width: 100%;
+}
+/* =========================================================
+   GROUP PAGE
+   ========================================================= */
+
+.people-section {
+    margin-top: 64px;
+}
+
+    .people-section:first-of-type {
+        margin-top: 0;
+    }
+
+    .people-section h2,
+    .publication-year h2 {
+        margin: 0 0 28px;
+        color: var(--ink);
+        font-size: 21px;
+        font-weight: 700;
+    }
+
+.people-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 44px 28px;
+}
+
+.person img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border: 1px solid #ddd;
+    object-fit: cover;
+}
+
+.person h3 {
+    margin: 13px 0 3px;
+    color: var(--heading);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+    .person h3 a {
+        color: inherit;
+    }
+
+        .person h3 a.highlight-name {
+            color: var(--link);
+        }
+
+.person p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.status {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 7px;
+    border: 1px solid #bbb;
+    border-radius: 999px;
+    color: #666;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    vertical-align: 1px;
+}
+
+    .status.visiting {
+        border-color: #8ca0bd;
+        color: #516783;
+    }
+
+/* =========================================================
+   PUBLICATION PAGE
+   ========================================================= */
+
+.publication-year {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 40px;
+    margin-top: 58px;
+}
+
+    .publication-year:first-of-type {
+        margin-top: 0;
+    }
+
+    .publication-year h2 {
+        font-size: 24px;
+    }
+
+.pub-list {
+    margin: 0;
+    padding-left: 25px;
+}
+
+    .pub-list li {
+        margin: 0 0 28px;
+        padding-left: 4px;
+    }
+
+    .pub-list a {
+        font-size: 19px;
+    }
+
+    .pub-list .authors,
+    .pub-list em {
+        display: block;
+        margin-top: 3px;
+        font-size: 16px;
+    }
+
+    .pub-list .authors {
+        color: #555;
+    }
+
+    .pub-list em {
+        color: var(--muted);
+        font-style: italic;
+    }
+
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+
+.contact-details {
+    margin: 0;
+}
+
+    .contact-details div {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 30px;
+        padding: 24px 0;
+        border-bottom: 1px solid var(--rule);
+    }
+
+    .contact-details dt {
+        color: #222;
+        font-weight: 600;
+    }
+
+    .contact-details dd {
+        margin: 0;
+    }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    padding: 24px 0 38px;
+    border-top: 1px solid var(--rule);
+    color: #888;
+    font-size: 13px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .header-layout {
+        grid-template-columns: 250px minmax(0, 1fr);
+        gap: 55px;
+    }
+
+    .ucl-logo {
+        width: 145px;
+        height: 42px;
+    }
+
+    .main-nav {
+        margin-top: 15px;
+    }
+
+    nav {
+        gap: 24px;
+        font-size: 18px;
+    }
+
+    .home-layout {
+        grid-template-columns: 250px minmax(0, 1fr);
+        gap: 55px;
+    }
+
+    .people-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+
+    .contact-page .page-title p {
+        width: 100%;
+        justify-self: start;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    .wrap {
+        width: min(100% - 36px, 620px);
+    }
+
+    .site-header {
+        padding-top: 20px;
+    }
+
+    /*
+    Mobile:
+    logos on first row, navigation below both logos
+  */
+    .header-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-rows: auto auto;
+        column-gap: 14px;
+        row-gap: 14px;
+        align-items: center;
+    }
+
+    .lab-brand {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+        margin-top: 0;
+    }
+
+
+    .header-right {
+        display: contents;
+    }
+
+    .ucl-brand {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        align-self: center;
+    }
+
+
+    .main-nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-self: stretch;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: flex-end;
+        gap: 18px;
+        font-size: 16px;
+    }
+
+    .home-layout {
+        grid-template-columns: 1fr;
+        gap: 42px;
+        padding-top: 30px;
+    }
+
+    .profile-column {
+        position: static;
+    }
+
+    .lead-portrait {
+        width: min(300px, 78vw);
+    }
+
+    .home-content {
+        padding-top: 0;
+    }
+
+    .intro-copy {
+        font-size: 18px;
+    }
+
+    .page-main {
+        padding-top: 40px;
+    }
+
+    .page-title {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 42px;
+    }
+
+    .people-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 34px 18px;
+    }
+
+    .publication-year {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: 42px;
+    }
+
+        .publication-year h2 {
+            margin-bottom: 4px;
+        }
+
+    .narrow-page {
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 430px) {
+    .header-layout {
+        column-gap: 9px;
+        row-gap: 12px;
+    }
+
+
+    nav {
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 14px;
+    }
+
+    .people-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-details div {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+}
+.contact-page .contact-details {
+    max-width: 850px;
+}
